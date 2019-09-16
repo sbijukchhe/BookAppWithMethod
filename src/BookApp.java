@@ -21,8 +21,8 @@ public class BookApp {
     public double getPrice(List<Book> books) {
 
         for (Book myBooks : books) {
-                for(int i=0; i< books.size(); i++) {
-                    if (myBooks.isInStock() == true) {
+            for (int i = 0; i < books.size(); i++) {
+                if (myBooks.isInStock() == true) {
                     price += myBooks.getPrice();
                 }
             }
@@ -31,12 +31,12 @@ public class BookApp {
     }
 
     // Overloaded method to return the price of books requested
-    public double getPrice(Book book, String title) {
-        if (title.equalsIgnoreCase(book.getTitle())) {
-            price = book.getPrice();
-        }
-        return price;
-    }
+//    public double getPrice(Book book, String title) {
+//        if (title.equalsIgnoreCase(book.getTitle())) {
+//            price = book.getPrice();
+//        }
+//        return price;
+//    }
 
     // Overloaded method to return the price of books requested
 //    public double getPrice(String title, int number){
@@ -44,26 +44,31 @@ public class BookApp {
 //        }
 
 
-    public static void main (String[]args){
+    public static void main(String[] args) {
 
         String title;
         int numBooks;
-            Book book = new Book();
-            BookDatabase bd = new BookDatabase();
-            List<Book> myBooks = bd.getBooks();
-            getDisplayText(myBooks);
+        double price;
+        Book book = new Book();
+        BookDatabase bd = new BookDatabase();
+        List<Book> myBooks = bd.getBooks();
+        getDisplayText(myBooks);
 
-            BookApp bookApp = new BookApp();
-            System.out.println("\n************************");
-            System.out.println("Total Price: " + bookApp.getPrice(myBooks));
-            System.out.println("************************");
+        BookApp bookApp = new BookApp();
+        System.out.println("\n************************");
+        System.out.println("Total Price: " + bookApp.getPrice(myBooks));
+        System.out.println("************************");
 
-            Scanner input = new Scanner(System.in);
-            System.out.println("Enter book title");
-            title = input.next();
-            System.out.println("Enter number of books");
-            numBooks = input.nextInt();
-            System.out.println("Total price :")
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter book title");
+        title = input.next();
+        System.out.println("Enter number of books");
+        numBooks = input.nextInt();
+
+        if (title.equalsIgnoreCase(book.getTitle())) {
+            price = book.getPrice()* numBooks;
+            System.out.println("Total price now is : " + price);
         }
+    }
 }
 
