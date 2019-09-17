@@ -5,6 +5,7 @@ public class BookDatabase {
 
     private Book book;
     private List<Book> books;
+    double price;
 
     public BookDatabase() {
         books = new ArrayList<>();
@@ -42,6 +43,17 @@ public class BookDatabase {
 
     public void setBooks(List<Book> books){
         this.books = books;
+    }
+
+    public double getBookPrice(String title){
+        for (Book myBook : books){
+            if (title.equalsIgnoreCase((book.getTitle()))){
+                price = myBook.getPrice();
+                break;
+            }
+            return price;
+        }
+       return 0;
     }
 }
 

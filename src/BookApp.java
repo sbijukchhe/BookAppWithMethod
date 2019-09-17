@@ -60,15 +60,17 @@ public class BookApp {
         System.out.println("************************");
 
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter book title");
-        title = input.next();
         System.out.println("Enter number of books");
         numBooks = input.nextInt();
+        input.nextLine();
+        System.out.println("Enter book title");
+        title = input.nextLine();
 
-        if (title.equalsIgnoreCase(book.getTitle())) {
-            price = book.getPrice()* numBooks;
+
+
+            price = bd.getBookPrice(title)* numBooks;
             System.out.println("Total price now is : " + price);
-        }
+
     }
 }
 
