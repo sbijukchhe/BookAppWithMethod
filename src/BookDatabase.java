@@ -45,15 +45,37 @@ public class BookDatabase {
         this.books = books;
     }
 
+    // method to return the author, title and description.
+    public static void getDisplayText(List<Book> books) {
+
+        for (Book myBook : books) {
+            System.out.println();
+            System.out.println("Title: " + myBook.getTitle() + "\t\tAuthor: " + myBook.getAuthor() +
+                    "\t\tDescription: " + myBook.getDescription());
+            System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------");
+        }
+    }
+
+    // method to return the total price for books in the list
+    public double getPrice(List<Book> books) {
+
+        for (Book myBooks : books) {
+            for (int i = 0; i < books.size(); i++) {
+                if (myBooks.isInStock() == true) {
+                    price += myBooks.getPrice();
+                }
+            }
+        }
+        return price;
+    }
+    // method to return the price for books by title
     public double getBookPrice(String title){
         for (Book myBook : books){
-            if (title.equalsIgnoreCase((book.getTitle()))){
+            if (title.trim().equalsIgnoreCase((myBook.getTitle()))){
                 price = myBook.getPrice();
-                break;
             }
-            return price;
         }
-       return 0;
+        return price;
     }
 }
 
